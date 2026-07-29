@@ -1,1 +1,32 @@
+class Solution {
+    public boolean isUgly(int n) {
 
+        // Ugly numbers must be positive.
+        // 0 and negative numbers are not considered ugly.
+        if (n <= 0) {
+            return false;
+        }
+
+        // Keep dividing by 2 until n is no longer divisible by 2.
+        // This removes all occurrences of the prime factor 2.
+        while (n % 2 == 0) {
+            n = n / 2;
+        }
+
+        // Remove all occurrences of the prime factor 3.
+        while (n % 3 == 0) {
+            n = n / 3;
+        }
+
+        // Remove all occurrences of the prime factor 5.
+        while (n % 5 == 0) {
+            n = n / 5;
+        }
+
+        // If all prime factors were only 2, 3, and 5,
+        // the number will be reduced to 1.
+        // Otherwise, another prime factor exists, so it is not an ugly number.
+        return n == 1;
+    }
+}
+  
