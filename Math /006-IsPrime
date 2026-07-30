@@ -1,0 +1,47 @@
+class Solution {
+    static boolean isPrime(int n) {
+
+        // Prime numbers are greater than 1.
+        // 0, 1, and negative numbers are not prime.
+        if (n < 2) {
+            return false;
+        }
+
+        // 2 is the only even prime number.
+        if (n == 2) {
+            return true;
+        }
+
+        // If the number is even (and not 2),
+        // it cannot be a prime number.
+        if (n % 2 == 0) {
+            return false;
+        }
+
+        // Check for divisibility using only odd numbers,
+        // starting from 3 up to the square root of n.
+        //
+        // Why only up to √n?
+        // If n has a factor greater than √n,
+        // the corresponding paired factor must be smaller than √n.
+        // So checking beyond √n is unnecessary.
+        //
+        // Why increment by 2?
+        // Since all even numbers are already eliminated,
+        // we only need to test odd divisors.
+        for (int i = 3; i * i <= n; i += 2) {
+
+            // If n is divisible by any number,
+            // it has more than two factors,
+            // so it is not a prime number.
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        // If no divisor is found,
+        // the number has exactly two factors:
+        // 1 and itself.
+        return true;
+    }
+}
