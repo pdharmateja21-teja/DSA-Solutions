@@ -1,0 +1,46 @@
+class Solution {
+    public int lcm(int a, int b) {
+
+        // The Least Common Multiple (LCM) is calculated using the formula:
+        //
+        //            a × b
+        // LCM = ----------------
+        //          GCD(a, b)
+        //
+        // First, find the GCD of the two numbers,
+        // then divide the product by the GCD.
+
+        return (a * b) / gcd(a, b);
+    }
+
+    public static int gcd(int a, int b) {
+
+        // Find the Greatest Common Divisor (GCD)
+        // using the Euclidean Algorithm.
+        //
+        // The algorithm repeatedly replaces:
+        // a = b
+        // b = a % b
+        //
+        // until the remainder becomes 0.
+        // At that point, 'a' is the GCD.
+
+        while (b > 0) {
+
+            // Store the current value of b
+            // because it will become the new value of a.
+            int temp = b;
+
+            // Find the remainder when a is divided by b.
+            // This becomes the new value of b.
+            b = a % b;
+
+            // Update a with the previous value of b.
+            a = temp;
+        }
+
+        // When b becomes 0,
+        // a contains the Greatest Common Divisor.
+        return a;
+    }
+}
