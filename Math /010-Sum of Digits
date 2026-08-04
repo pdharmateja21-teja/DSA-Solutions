@@ -1,0 +1,33 @@
+class Solution {
+    static int sumOfDigits(int n) {
+
+        // Variable to store the sum of all digits.
+        // Initially, the sum is 0 because no digits have been processed yet.
+        int sum = 0;
+
+        // Continue processing until all digits of the number are extracted.
+        while (n > 0) {
+
+            // Extract the last digit of the number.
+            //
+            // Example:
+            // n = 583
+            // digit = 583 % 10 = 3
+            int digit = n % 10;
+
+            // Add the extracted digit to the running sum.
+            sum += digit;
+
+            // Remove the last digit from the number.
+            //
+            // Example:
+            // n = 583
+            // n = 583 / 10 = 58
+            n = n / 10;
+        }
+
+        // After all digits have been processed,
+        // return the total sum of the digits.
+        return sum;
+    }
+}
