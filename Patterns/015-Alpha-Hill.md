@@ -1,4 +1,4 @@
-````text
+
 # Alpha Hill Pattern
 
 ## Problem Statement
@@ -402,4 +402,4 @@ No extra arrays, lists, or recursion are used.
 - The decreasing loop starts from `i - 2` to avoid printing the peak character twice.
 - Center alignment is achieved by printing `n - i` leading spaces.
 - Breaking the pattern into independent parts makes it easier to understand and implement.
-````
+
